@@ -1,19 +1,31 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <HelloWorldVue></HelloWorldVue>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import HelloWorldVue from "./components/HelloWorld.vue";
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    HelloWorldVue: HelloWorldVue,
+  },
+  data() {
+    return {
+      a: {},
+    };
+  },
+  beforeMount() {
+    // this.$set(this.a, "b", 10);
+    this.$data.a.b = 10;
+  },
+  methods: {
+    changeA() {
+      this.$data.a.b -= 1;
+    },
+  },
+};
 </script>
 
 <style>
